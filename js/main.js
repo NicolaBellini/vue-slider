@@ -34,7 +34,9 @@ createApp({
             counter:0,
             // FLAG PER L' AUTOPLAY
             isMouseOut: true,
-            inteval:'',
+            isForward: true,
+            isReverse: false,
+           
         }
        
     },
@@ -48,22 +50,28 @@ createApp({
             }
         },
         autoplay(){
-            if(this.isMouseOut){
+            if(this.isMouseOut && !this.isReverse && this.isForward){
                 this.interval = setInterval(() => {
                     this.counter++;
+                    this.infiniteCarusel()
+                    console.log(this.isMouseOut);
+                },1000);
+            }else if(this.isMouseOut && this.isReverse && !this.isForward){
+                this.interval = setInterval(() => {
+                    this.counter--;
                     this.infiniteCarusel()
                     console.log(this.isMouseOut);
                 },1000);
             }else{
                 clearInterval(this.interval)
             }
-        }
+        },
 
     },
 
     mounted() {
         this.infiniteCarusel()
-        
+        this.autoplay()
         console.log('ciao',this.counter);
     },
 

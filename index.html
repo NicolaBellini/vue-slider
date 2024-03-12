@@ -31,7 +31,13 @@
             <div class="row text-center">
              
                 <div class="col-12 p-2">
-                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" @mouseenter="isMouseOut=false, autoplay()" @mouseleave="isMouseOut=true, autoplay()">
+                   <div
+                      class="my-carousel-container d-flex flex-column px-5"
+                      id="my-carousel"
+                      @mouseenter="isMouseOut=false, autoplay()"
+                      @mouseleave="isMouseOut=true, autoplay()"
+                      @dblclick="isReverse=true, isForward=false,console.log(isReverse, isForward,isMouseOut)"
+                      >
                         
                     <!-- IMMAGINE CAROSELLO GRANDE -->
                         <div class="my-carousel-images" id="output">
