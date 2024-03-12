@@ -32,6 +32,8 @@ createApp({
                 },
             ],
             counter:0,
+            // FLAG PER L' AUTOPLAY
+            isMouseEnter: false,
         }
        
     },
@@ -43,11 +45,18 @@ createApp({
             }else if(this.counter > this.images.length-1){
                 this.counter = 0;
             }
+        },
+        autoplay(){
+            setInterval(() => {
+                this.counter++;
+                this.infiniteCarusel()
+            },1000);
         }
+
     },
 
     mounted() {
-        this.infiniteCarusel();
+        this.autoplay()
         console.log('ciao',this.counter);
     },
 
