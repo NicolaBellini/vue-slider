@@ -36,6 +36,8 @@ createApp({
             isMouseOut: true,
             isForward: true,
             isReverse: false,
+            // quando è true l' autoplay va in avanti
+            forward: true
            
         }
        
@@ -50,13 +52,13 @@ createApp({
             }
         },
         autoplay(){
-            if(this.isMouseOut && !this.isReverse && this.isForward){
+            if(this.isMouseOut && this.forward){
                 this.interval = setInterval(() => {
                     this.counter++;
                     this.infiniteCarusel()
                     console.log(this.isMouseOut);
                 },1000);
-            }else if(this.isMouseOut && this.isReverse && !this.isForward){
+            }else if(this.isMouseOut && !this.forward){
                 this.interval = setInterval(() => {
                     this.counter--;
                     this.infiniteCarusel()
@@ -66,7 +68,6 @@ createApp({
                 clearInterval(this.interval)
             }
         },
-
     },
 
     mounted() {

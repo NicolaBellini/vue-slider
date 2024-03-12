@@ -36,7 +36,7 @@
                       id="my-carousel"
                       @mouseenter="isMouseOut=false, autoplay()"
                       @mouseleave="isMouseOut=true, autoplay()"
-                      @dblclick="isReverse=true, isForward=false,console.log(isReverse, isForward,isMouseOut)"
+                      @dblclick="forward = !forward"
                       >
                         
                     <!-- IMMAGINE CAROSELLO GRANDE -->
