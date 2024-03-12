@@ -29,63 +29,47 @@
     <div id="app">
         <div class="container-fluid p-5">
             <div class="row text-center">
-                <div class="col-12 p-3" id="my-before-carousel">
-
-                </div>
-
+             
                 <div class="col-12 p-2">
                     <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
+                        
+                    <!-- IMMAGINE CAROSELLO GRANDE -->
                         <div class="my-carousel-images" id="output">
-
-                            <div class="my-carousel-item  active">
+                            <div class="my-carousel-item active">
                                 <img class="img-fluid" :src="images[counter].url" >
                                 <div class="item-description px-3">
                                     <h2>{{images[counter].title}}</h2>
                                     <p>{{images[counter].description}}</p>
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="my-thumbnails position-relative" id="thumb_output">
-                            <!-- prev -->
-                            <div class="my-previous position-absolute" id="prevBtn">
+                            <!-- prev BUTTON-->
+                            <div class="my-previous position-absolute" id="prevBtn" @click="counter--,infiniteCarusel()">
                                 <span class="my-prev-hook"></span>
                             </div>
 
-                            <div class="my-thumbnail active" v-for="(image, index) in images">
+                            <!-- THUMBNAILS -->
+                            <div class="my-thumbnail" v-for="(image, index) in images">
                                 <img class="img-fluid" :src="image.url" :alt="image.title" :title="image.title">
                             </div>
 
-                            <!-- <div class="my-thumbnail">
-                                <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="Thumbnail of Svezia picture">
-                            </div>
-
-                            <div class="my-thumbnail">
-                                <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="Thumbnail of Svezia picture">
-                            </div>
-
-                            <div class="my-thumbnail">
-                                <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="Thumbnail of Svezia picture">
-                            </div>
-
-                            <div class="my-thumbnail">
-                                <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="Thumbnail of Svezia picture">
-                            </div> -->
-
-                            <!-- next -->
-                            <div class="my-next position-absolute" id="nextBtn">
+                            <!-- next BUTTON-->
+                            <div class="my-next position-absolute" id="nextBtn" @click="counter++,console.log(counter), infiniteCarusel()">
                                 <span class="my-next-hook"></span>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12" id="my-after-carousel">
-                    <!-- <button id="stop-autoplay" class="btn btn-danger m-4 p-3  ">Stop autoplay</button>
+               <!--  <div class="col-12" id="my-after-carousel">
+                    <button id="stop-autoplay" class="btn btn-danger m-4 p-3  ">Stop autoplay</button>
                     <button id="start-autoplay" class="btn btn-outline-primary m-4 p-3 ">Start autoplay</button>
                     <button id="invert1" class="btn btn-dark  ">Invert autolay</button>
-                    <button id="invert2" class="btn btn-danger ">Invert autolay</button> -->
-                </div>
+                    <button id="invert2" class="btn btn-danger ">Invert autolay</button> 
+                </div>-->
             </div>
         </div>
     </div>

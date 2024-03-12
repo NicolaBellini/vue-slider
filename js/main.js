@@ -31,16 +31,24 @@ createApp({
                     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
                 },
             ],
-            counter:4,
+            counter:0,
         }
        
     },
-    methods: {
-        showImage(){
 
+    methods: {
+        infiniteCarusel(){
+            if(this.counter < 0){
+                this.counter = this.images.length-1;
+            }else if(this.counter > this.images.length-1){
+                this.counter = 0;
+            }
         }
     },
+
     mounted() {
-        console.log('ciao');
+        this.infiniteCarusel();
+        console.log('ciao',this.counter);
     },
+
 }).mount('#app')
