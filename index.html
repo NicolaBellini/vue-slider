@@ -31,7 +31,7 @@
             <div class="row text-center">
              
                 <div class="col-12 p-2">
-                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel">
+                    <div class="my-carousel-container d-flex flex-column px-5" id="my-carousel" @mouseenter="isMouseOut=false" @mouseleave="isMouseOut=true" >
                         
                     <!-- IMMAGINE CAROSELLO GRANDE -->
                         <div class="my-carousel-images" id="output">
@@ -46,17 +46,17 @@
 
                         <div class="my-thumbnails position-relative" id="thumb_output">
                             <!-- prev BUTTON-->
-                            <div class="my-previous position-absolute" id="prevBtn" @click="counter--,infiniteCarusel()">
+                            <div class="my-previous position-absolute" id="prevBtn" @click="counter--">
                                 <span class="my-prev-hook"></span>
                             </div>
 
                             <!-- THUMBNAILS -->
-                            <div class="my-thumbnail" v-for="(image, index) in images">
+                            <div class="my-thumbnail" v-for="(image, index) in images" @click="counter=index">
                                 <img class="img-fluid" :src="image.url" :alt="image.title" :title="image.title">
                             </div>
 
                             <!-- next BUTTON-->
-                            <div class="my-next position-absolute" id="nextBtn" @click="counter++,console.log(counter), infiniteCarusel()">
+                            <div class="my-next position-absolute" id="nextBtn" @click="counter++,console.log(counter)">
                                 <span class="my-next-hook"></span>
                             </div>
 

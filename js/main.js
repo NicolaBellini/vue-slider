@@ -33,7 +33,7 @@ createApp({
             ],
             counter:0,
             // FLAG PER L' AUTOPLAY
-            isMouseEnter: false,
+            isMouseOut: true,
         }
        
     },
@@ -47,16 +47,20 @@ createApp({
             }
         },
         autoplay(){
-            setInterval(() => {
-                this.counter++;
-                this.infiniteCarusel()
-            },1000);
+            if(this.isMouseOut === true){
+                setInterval(() => {
+                    this.counter++;
+                    this.infiniteCarusel()
+                    console.log(this.isMouseOut);
+                },1000);
+            }
         }
 
     },
 
     mounted() {
-        this.autoplay()
+        this.infiniteCarusel()
+        // this.autoplay();
         console.log('ciao',this.counter);
     },
 
