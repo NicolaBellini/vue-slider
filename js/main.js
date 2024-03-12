@@ -57,13 +57,13 @@ createApp({
                     this.counter++;
                     this.infiniteCarusel()
                     console.log(this.isMouseOut);
-                },1000);
+                },3000);
             }else if(this.isMouseOut && !this.forward){
                 this.interval = setInterval(() => {
                     this.counter--;
                     this.infiniteCarusel()
                     console.log(this.isMouseOut);
-                },1000);
+                },3000);
             }else{
                 clearInterval(this.interval)
             }
