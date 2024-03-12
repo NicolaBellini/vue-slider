@@ -34,6 +34,7 @@ createApp({
             counter:0,
             // FLAG PER L' AUTOPLAY
             isMouseOut: true,
+            inteval:'',
         }
        
     },
@@ -47,12 +48,14 @@ createApp({
             }
         },
         autoplay(){
-            if(this.isMouseOut === true){
-                setInterval(() => {
+            if(this.isMouseOut){
+                this.interval = setInterval(() => {
                     this.counter++;
                     this.infiniteCarusel()
                     console.log(this.isMouseOut);
                 },1000);
+            }else{
+                clearInterval(this.interval)
             }
         }
 
@@ -60,7 +63,7 @@ createApp({
 
     mounted() {
         this.infiniteCarusel()
-        // this.autoplay();
+        
         console.log('ciao',this.counter);
     },
 
